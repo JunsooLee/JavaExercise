@@ -1,21 +1,21 @@
 package study;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.ArrayDeque;
 
 public class Main {
 
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+	public static void main(String[] args) throws Exception{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		ArrayDeque<Integer> deque = new ArrayDeque<Integer>();
 		String str;
 
 		int number = 0;
-		int loop = sc.nextInt();
-		sc.nextLine();
+		int loop = Integer.parseInt(br.readLine());
 
 		for (int i = 0; i < loop; i++) {
-			str = sc.nextLine();
+			str = br.readLine();
 
 			if (str.contains("push_back")) {
 				number = Integer.parseInt(str.split(" ")[1]);
@@ -52,6 +52,6 @@ public class Main {
 					System.out.println(-1);
 			}
 		}
-		sc.close();
+		br.close();
 	}
 }
