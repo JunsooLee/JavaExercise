@@ -5,6 +5,12 @@ import java.io.BufferedWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
+/*길이가 2 x n인 사각형을 채울 때 
+ * 1x2 블럭을 사용하면 n-1의 칸이 남고
+ * 2x1의 블럭을 사용하면 n-2의 칸이 남기 때문에 
+ * F(n) = F(n-1) + F(n-2)의 식이 나온다.
+ */
+
 public class Main {
 
 	public static int[] count;
