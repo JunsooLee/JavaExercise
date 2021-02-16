@@ -15,6 +15,7 @@ public class Main {
 		int N = Integer.parseInt(br.readLine());
 		int[][] cost = new int[N][3];
 		int[][] dp = new int[N][3];
+		int answer;
 
 		for (int i = 0; i < N; i++) {
 			String[] str = br.readLine().split(" ");
@@ -31,13 +32,23 @@ public class Main {
 		for (int i = 1; i < N; i++) {
 			for (int j = 0; j < 3; j++) {
 				if (j == 0)
-					dp[i][j] = dp[i - 1][1] + dp[i - 1][2] + cost[i][j];
+					dp[i][j] = Math.min(dp[i - 1][1] + cost[i][j], dp[i - 1][2] + cost[i][j]);
 				else if (j == 1)
-					dp[i][j] = dp[i - 1][0] + dp[i - 1][2] + cost[i][j];
+					dp[i][j] = Math.min(dp[i - 1][0] + cost[i][j], dp[i - 1][2] + cost[i][j]);
 				else if (j == 2)
-					dp[i][j] = dp[i - 1][0] + dp[i - 1][1] + cost[i][j];
+					dp[i][j] = Math.min(dp[i - 1][0] + cost[i][j], dp[i - 1][1] + cost[i][j]);
 			}
 		}
+		
+		answer = dp[N-1][0];
+		
+		for(int i=0; i<3; i++) {
+			if(dp[N-1][i] < answer)
+				answer = dp[N-1][i];
+		}
+		
+		bw.append(answer+"\n");
+		bw.flush();
 	}
 
 }
