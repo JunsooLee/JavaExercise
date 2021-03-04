@@ -3,4 +3,4 @@ Algorithm study
 Target period:<br/>
 2021.01.07 ~ 2021.06.30<br/>
 
-Let's study
+Let's study Algorithms
